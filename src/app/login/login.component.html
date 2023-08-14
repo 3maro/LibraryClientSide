@@ -1,19 +1,23 @@
-<div class="row justify-content-center mt-5">
+<div class="container">
+  <div class="row justify-content-center mt-5">
     <div class="col-md-4">
-        <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-            <h2 class="h3 mb-3 font-weight-normal text-center">Login</h2>
-            <div *ngIf="invalidLogin" class="alert alert-danger" role="alert">Incorrect email or password. Please try again.</div>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" id="email" name="email" ngModel class="form-control" placeholder="Email address"
-                    required autofocus aria-label="Email address">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password"
-                    required aria-label="Password">
-            </div>
-            <button class="btn btn-primary btn-block" type="submit">Login</button>
-        </form>
+      <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <h2 class="h3 mb-3 font-weight-normal text-center"><i class="fas fa-sign-in-alt me-2"></i> Login</h2>
+        <div *ngIf="invalidLogin" class="alert alert-danger text-center" role="alert">
+          <i class="fas fa-exclamation-circle me-2"></i> Incorrect email or password. Please try again.
+        </div>
+        <div class="form-group mb-3">
+          <label for="email"><i class="fas fa-envelope me-2"></i> Email address</label>
+          <input type="email" id="email" name="email" ngModel class="form-control" placeholder="Email address" required
+            autofocus aria-label="Email address">
+        </div>
+        <div class="form-group mb-3">
+          <label for="password"><i class="fas fa-lock me-2"></i> Password</label>
+          <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password"
+            required aria-label="Password">
+        </div>
+        <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-sign-in-alt me-2"></i> Login</button>
+      </form>
     </div>
+  </div>
 </div>
