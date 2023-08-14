@@ -1,112 +1,144 @@
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Library Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="logOut()">Logout</a>
-        </li>
-        <li *ngIf="!isUserAuthenticated()" class="nav-item active">
-          <a class="nav-link" routerLink="/book">Books</a>
-        </li>
-      </ul>
+<div class="container">
+  <h1 class="text-center my-4">Book List</h1>
+
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addBookModal">
+    <i class="fa-solid fa-plus"></i> Add New Book
+  </button>
+
+  <!-- Add New Book Modal -->
+  <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true"
+    (hidden.bs.modal)="clearForm()">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBookModalLabel">Add New Book</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="bookForm">
+            <div class="mb-3">
+              <label for="modalTitle" class="form-label">Book Title</label>
+              <input type="text" class="form-control" id="modalTitle" formControlName="Title"
+                placeholder="Title of Book">
+            </div>
+            <div class="mb-3">
+              <label for="modalShortDescription" class="form-label">Book Short Description</label>
+              <input type="text" class="form-control" id="modalShortDescription" formControlName="ShortDescription"
+                placeholder="Book short description">
+            </div>
+            <div class="mb-3">
+              <label for="modalAuthor" class="form-label">Book Author</label>
+              <input type="text" class="form-control" id="modalAuthor" formControlName="Author" placeholder="Author">
+            </div>
+            <div class="mb-3">
+              <label for="modalPublishDate" class="form-label">Publish Date</label>
+              <input type="text" class="form-control" id="modalPublishDate" formControlName="PublishDate"
+                placeholder="Publish Date">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="PostBook(bookForm.value)">Add Book</button>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
 
-
-<div class="container">
-  <form class="form-horizontal" [formGroup]="bookForm">
-    <h1 style="text-align: center;">Welcome to Angular 14 CRUD with .NET 6 Web API</h1>
-    <div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Book Title:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="txttitle" formControlName="title" placeholder="Title of Book">
+  <!-- Edit Book Modal -->
+  <div class="modal fade" id="editBookModal" tabindex="-1" aria-labelledby="editBookModalLabel" aria-hidden="true"
+    (hidden.bs.modal)="clearForm()">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editBookModalLabel">Edit Book</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-      <br />
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Book Short Description :</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="txtbookShortDescription" formControlName="bookShortDescription"
-            placeholder="Book short description">
-        </div>
-      </div>
-      <br />
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Book Author:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="txtbookAuthor" formControlName="bookAuthor" placeholder="Author">
-        </div>
-      </div>
-      <br />
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Publish Date :</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="txtpublishDate" formControlName="bookPublishDate"
-            placeholder="Publish Date">
-        </div>
-      </div>
-      <br />
-      <div class="form-group">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm">
-              <button type="submit" class="btn btn-primary" (click)="PostBook(bookForm.value)">Submit</button>
+        <div class="modal-body">
+          <form [formGroup]="bookForm">
+            <div class="mb-3">
+              <label for="modalTitle" class="form-label">Book Title</label>
+              <input type="text" class="form-control" id="modalTitle" formControlName="Title"
+                placeholder="Title of Book">
             </div>
-            <div class="col-sm">
-              <button type="submit" class="btn btn-primary" (click)="PatchBook(bookForm.value)">Update</button>
+            <div class="mb-3">
+              <label for="modalShortDescription" class="form-label">Book Short Description</label>
+              <input type="text" class="form-control" id="modalShortDescription" formControlName="ShortDescription"
+                placeholder="Book short description">
             </div>
-            <div class="col-sm">
-              <button type="submit" class="btn btn-primary" (click)="Clear(bookForm.value)">Clear</button>
+            <div class="mb-3">
+              <label for="modalAuthor" class="form-label">Book Author</label>
+              <input type="text" class="form-control" id="modalAuthor" formControlName="Author" placeholder="Author">
             </div>
-          </div>
+            <div class="mb-3">
+              <label for="modalPublishDate" class="form-label">Publish Date</label>
+              <input type="text" class="form-control" id="modalPublishDate" formControlName="PublishDate"
+                placeholder="Publish Date">
+            </div>
+          </form>
         </div>
-        <br />
-      </div>
-      <div>
-        <div class="alert alert-success" style="text-align: center;"><b>Book List</b></div>
-        <div class="table-responsive" style="text-align: center;">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Book Titlte</th>
-                <th scope="col">Description</th>
-                <th scope="col">Author</th>
-                <th scope="col">Publish Date</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let book of BookList | async; index as i">
-                <th scope="row">{{ i + 1 }}</th>
-                <td>{{book.title}}</td>
-                <td>{{book.shortDescription}}</td>
-                <td>{{book.author}}</td>
-                <td>{{book.publishDate}}</td>
-
-                <td>
-                  <button type="button" class="btn1" matTooltip="Click Edit Button"
-                    (click)='BookDetailsToEdit(book.id)'>Edit</button>
-                  |
-                  <button type="button" class="btn1" matTooltip="Click Delete Button"
-                    (click)="DeleteBook(book.id)">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="UpdateBook(bookForm.value)">Save Changes</button>
         </div>
       </div>
     </div>
-  </form>
+  </div>
 
-</div>
+  <!-- Read More Modal -->
+  <div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="readMoreModalLabel">Book Description</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{ readMoreContent }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book List Section -->
+  <div class="table-responsive">
+    <table class="table table-striped table-borded mt-4">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Book Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Author</th>
+          <th scope="col">Publish Date</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of BookList | async; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{book.title}}</td>
+          <td>
+            {{ book.shortDescription | slice:0:20 }}
+            <button *ngIf="book.shortDescription.length > 100" type="button" class="btn btn-link" data-bs-toggle="modal"
+              data-bs-target="#readMoreModal" (click)="openReadMoreModal(book.shortDescription)">
+              Read More
+            </button>
+          </td>
+          <td>{{book.author}}</td>
+          <td>{{book.publishDate}}</td>
+          <td>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                data-bs-target="#editBookModal" matTooltip="Edit" (click)="BookDetailsToEdit(book.id)">
+                <i class="fa-solid fa-pencil"></i>
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-danger" matTooltip="Delete"
+                (click)="DeleteBook(book.id)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
