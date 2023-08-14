@@ -1,0 +1,26 @@
+.quote-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .quote-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .quote-content {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .quote-book {
+    font-size: 14px;
+    color: #888;
+  }

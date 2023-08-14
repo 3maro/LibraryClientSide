@@ -1,112 +1,73 @@
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Library Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="logOut()">Logout</a>
-        </li>
-        <li *ngIf="!isUserAuthenticated()" class="nav-item active">
-          <a class="nav-link" routerLink="/book">Books</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
 <div class="container">
-  <form class="form-horizontal" [formGroup]="bookForm">
-    <h1 style="text-align: center;">Welcome to Angular 14 CRUD with .NET 6 Web API</h1>
-    <div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Book Title:</label>
-        <div class="col-sm-10">
+  <h1 class="text-center my-4">Library Application</h1>
+  <form class="my-4" [formGroup]="bookForm">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="txttitle" class="form-label">Book Title</label>
           <input type="text" class="form-control" id="txttitle" formControlName="title" placeholder="Title of Book">
         </div>
-      </div>
-      <br />
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Book Short Description :</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="txtbookShortDescription" formControlName="bookShortDescription"
+        <div class="mb-3">
+          <label for="txtbookShortDescription" class="form-label">Book Short Description</label>
+          <input type="text" class="form-control" id="txtbookShortDescription" formControlName="ShortDescription"
             placeholder="Book short description">
         </div>
-      </div>
-      <br />
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Book Author:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="txtbookAuthor" formControlName="bookAuthor" placeholder="Author">
+        <div class="mb-3">
+          <label for="txtbookAuthor" class="form-label">Book Author</label>
+          <input type="text" class="form-control" id="txtbookAuthor" formControlName="Author" placeholder="Author">
         </div>
-      </div>
-      <br />
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Publish Date :</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="txtpublishDate" formControlName="bookPublishDate"
+        <div class="mb-3">
+          <label for="txtpublishDate" class="form-label">Publish Date</label>
+          <input type="text" class="form-control" id="txtpublishDate" formControlName="PublishDate"
             placeholder="Publish Date">
         </div>
-      </div>
-      <br />
-      <div class="form-group">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm">
-              <button type="submit" class="btn btn-primary" (click)="PostBook(bookForm.value)">Submit</button>
-            </div>
-            <div class="col-sm">
-              <button type="submit" class="btn btn-primary" (click)="PatchBook(bookForm.value)">Update</button>
-            </div>
-            <div class="col-sm">
-              <button type="submit" class="btn btn-primary" (click)="Clear(bookForm.value)">Clear</button>
-            </div>
-          </div>
-        </div>
-        <br />
-      </div>
-      <div>
-        <div class="alert alert-success" style="text-align: center;"><b>Book List</b></div>
-        <div class="table-responsive" style="text-align: center;">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Book Titlte</th>
-                <th scope="col">Description</th>
-                <th scope="col">Author</th>
-                <th scope="col">Publish Date</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let book of BookList | async; index as i">
-                <th scope="row">{{ i + 1 }}</th>
-                <td>{{book.title}}</td>
-                <td>{{book.shortDescription}}</td>
-                <td>{{book.author}}</td>
-                <td>{{book.publishDate}}</td>
-
-                <td>
-                  <button type="button" class="btn1" matTooltip="Click Edit Button"
-                    (click)='BookDetailsToEdit(book.id)'>Edit</button>
-                  |
-                  <button type="button" class="btn1" matTooltip="Click Delete Button"
-                    (click)="DeleteBook(book.id)">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary" (click)="PostBook(bookForm.value)">
+            <i class="fa-solid fa-check"></i> Submit
+          </button>
+          <button type="submit" class="btn btn-secondary" (click)="PatchBook(bookForm.value)">
+            <i class="fa-solid fa-pencil"></i> Update
+          </button>
+          <button type="submit" class="btn btn-light" (click)="Clear(bookForm.value)">
+            <i class="fa-solid fa-eraser"></i> Clear
+          </button>
         </div>
       </div>
     </div>
   </form>
 
+  <div class="alert alert-success text-center my-4"><b>Book List</b></div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Book Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Author</th>
+          <th scope="col">Publish Date</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of BookList | async; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{book.title}}</td>
+          <td>{{book.shortDescription}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.publishDate}}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary me-2" matTooltip="Edit"
+              (click)="BookDetailsToEdit(book.id)">
+              <i class="fa-solid fa-pencil"></i>
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-danger" matTooltip="Delete"
+              (click)="preventSubmit($event);DeleteBook(book.id)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

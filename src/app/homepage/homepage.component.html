@@ -8,7 +8,9 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li *ngIf="isUserAuthenticated()" class="nav-item">
-          <a class="nav-link" routerLink="/books">Books</a>
+          <a class="nav-link" routerLink="/books">
+            <i class="fa-solid fa-book-open"></i>
+            Books</a>
         </li>
         <li *ngIf="isUserAuthenticated()" class="nav-item">
           <a class="nav-link" (click)="logOut()">Logout</a>

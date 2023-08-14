@@ -30,11 +30,15 @@ export class BookComponent implements OnInit {
     ngOnInit() {
       this.bookForm = this.formbulider.group({
         title: ['', [Validators.required]],
-        bookAuthor: ['', [Validators.required]],
-        bookShortDescription: ['', [Validators.required]],
-        bookPublishDate: ['', [Validators.required]]
+        Author: ['', [Validators.required]],
+        ShortDescription: ['', [Validators.required]],
+        PublishDate: ['', [Validators.required]]
       });
       this.getBookList();
+    }
+
+    preventSubmit(event: Event): void {
+      event.preventDefault();
     }
 
     clearForm(): void {    

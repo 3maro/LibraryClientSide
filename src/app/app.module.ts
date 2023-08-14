@@ -13,12 +13,16 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { QuoteComponent } from './quote/quote.component';
+import { FooterComponent } from './footer/footer.component';
 
 //all components routes
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'book', component: BookComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'quotes', component: QuoteComponent },
 ];
 
 //function is use to get jwt token from local storage
@@ -31,7 +35,10 @@ export function tokenGetter() {
     AppComponent,
     BookComponent,
     HomepageComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    QuoteComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
