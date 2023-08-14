@@ -1,27 +1,40 @@
-# LibraryClientSide
+# Library Client-Side Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
+Welcome to the Library Client-Side Application! This project is a simple Angular application that demonstrates CRUD (Create, Read, Update, Delete) operations for managing books in a library.
 
-## Development server
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Overview
 
-## Code scaffolding
+This client-side application is part of a training project designed to showcase fundamental concepts of Angular, including components, forms, services, routing, and more. It integrates with a backend API to manage a library of books.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+- View a list of books with their details.
+- Add new books to the library.
+- Edit existing book information.
+- Delete books from the library.
+- Responsive design for mobile and desktop.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Getting Started
 
-## Running unit tests
+### Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Before you begin, ensure you have the following tools installed:
 
-## Running end-to-end tests
+- Node.js and npm (Node Package Manager)
+- Angular CLI
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Installation
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/3maro/LibraryClientSide.git
