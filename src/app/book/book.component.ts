@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { BookService } from '../book-service.service';
+import { BookService } from '../Services/book-service.service';
 import { Book } from '../Models/Book';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';

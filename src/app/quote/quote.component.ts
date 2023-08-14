@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Quote } from '../Models/Quote';
-import { QuoteService } from '../quote.service';
+import { QuoteService } from '../Services/quote.service';
 
 @Component({
   selector: 'app-quote',

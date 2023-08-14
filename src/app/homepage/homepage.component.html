@@ -1,8 +1,50 @@
-<div class="container" *ngIf="!isUserAuthenticated()">
-  <login></login>
-</div>
-<div *ngIf="isUserAuthenticated()" style="color:green;">
-  <h2>
-    Welcome to the Library Application
-  </h2>
+<div class="container mt-5">
+  <div class="text-center">
+    <h1 class="display-4">Welcome to the Library Application</h1>
+    <p class="lead">
+      This is a training project to demonstrate a simple library application. It showcases CRUD operations for managing books, and it provides features like adding, editing, and deleting books.
+    </p>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title"><i class="fas fa-list-ul"></i> Project Features:</h3>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fas fa-chevron-right"></i> View a list of books with their details.</li>
+            <li class="list-group-item"><i class="fas fa-chevron-right"></i> Add new books to the library.</li>
+            <li class="list-group-item"><i class="fas fa-chevron-right"></i> Edit existing book information.</li>
+            <li class="list-group-item"><i class="fas fa-chevron-right"></i> Delete books from the library.</li>
+            <li class="list-group-item"><i class="fas fa-chevron-right"></i> Responsive design for mobile and desktop.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title"><i class="fas fa-key"></i> Login Information:</h3>
+          <p>To explore the project, you can log in using the following credentials:</p>
+          <p><strong>Email:</strong> user@user.user</p>
+          <p><strong>Password:</strong> 12345&aA</p>
+          <button class="btn btn-primary">
+            <a class="nav-link" routerLink="/login">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              Login</a>
+          </button>
+          
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><i class="fab fa-github"></i> GitHub Repository:</h3>
+          <p>You can find the source code of this project on GitHub:</p>
+          <p>
+            <a href="https://github.com/3maro/LibraryClientSide" target="_blank">GitHub Repository</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
