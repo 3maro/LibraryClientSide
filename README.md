@@ -5,12 +5,6 @@ Welcome to the Library Client-Side Application! This project is a simple Angular
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
