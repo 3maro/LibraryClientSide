@@ -8,12 +8,14 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav ms-auto">
 
+                <!-- Login link for unauthenticated users -->
                 <li *ngIf="!isUserAuthenticated()" class="nav-item active">
                     <a class="nav-link" routerLink="/login">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login</a>
                 </li>
 
+                <!-- Navigation links for authenticated users -->
                 <ng-container *ngIf="isUserAuthenticated();">
                     <li class="nav-item active">
                         <a class="nav-link" routerLink="/books">
@@ -27,17 +29,18 @@
                             Quotes</a>
                     </li>
 
+                    <!-- Divider between navigation links -->
                     <span class="navbar-divider">|</span>
 
+                    <!-- Logout link for authenticated users -->
                     <li *ngIf="isUserAuthenticated()" class="nav-item">
                         <a class="nav-link" routerLink="/" (click)="logOut()">Logout
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            
                         </a>
                     </li>
-
                 </ng-container>
 
+                <!-- Login link template -->
                 <ng-template #loginTemplate>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/login">Login</a>

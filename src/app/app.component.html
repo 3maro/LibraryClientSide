@@ -1,17 +1,24 @@
+<!-- Include Font Awesome CSS stylesheet to access icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <body>
+    <!-- ng-http-loader: Displays a loading spinner during HTTP requests -->
     <ng-http-loader></ng-http-loader>
     
+    <!-- Main page container -->
     <div class="page-container mb-5">
+        <!-- Navigation bar component -->
         <nav>
             <app-navbar></app-navbar>
         </nav>
 
+        <!-- Router outlet for dynamically rendering components based on routes -->
         <router-outlet></router-outlet>
 
     </div>
+    
+    <!-- Footer component -->
     <app-footer></app-footer>
 </body>

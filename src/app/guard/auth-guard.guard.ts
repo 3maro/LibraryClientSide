@@ -7,15 +7,14 @@ export class AuthGuard implements CanActivate {
 
   constructor(private jwtHelper: JwtHelperService, private router: Router) {
   }
+  // Guard that checks if a user is authenticated
   canActivate() {
-
-    //get the jwt token which are present in the local storage
     const token = localStorage.getItem("jwt");
-
-    //Check if the token is expired or not and if token is expired then redirect to login page and return false
-    if (token && !this.jwtHelper.isTokenExpired(token)){
+    if (token && !this.jwtHelper.isTokenExpired(token)) {
       return true;
     }
+
+    // Redirect to login page if not authenticated
     this.router.navigate(["login"]);
     return false;
   }
