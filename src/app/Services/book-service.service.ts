@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../Models/Book';
@@ -48,5 +48,13 @@ export class BookService {
   //
   getBookDetailsById(bookId: string): Observable<Book> {
     return this.http.get<Book>(this.url + bookId);
+  }
+
+  getBooks(pageSize: number, pageNumber: number): Observable<any> {
+    const params = new HttpParams()
+      .set('pageSize', pageSize.toString())
+      .set('pageNumber', pageNumber.toString());
+
+    return this.http.get<any>(this.url, { params });
   }
 }

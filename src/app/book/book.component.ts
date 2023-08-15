@@ -23,6 +23,8 @@ export class BookComponent implements OnInit {
   // 
   readMoreContent: string = '';
 
+  // Pagination
+
   /**
    *
    */
@@ -39,7 +41,9 @@ export class BookComponent implements OnInit {
       PublishDate: ['', [Validators.required]]
     });
     this.getBookList();
-    this.clearForm();  }
+    this.clearForm();
+    
+  }
 
   getBookList() {
     this.BookList1 = this.bookService.getBookList();
@@ -89,7 +93,7 @@ export class BookComponent implements OnInit {
     }
   }
 
-  //
+ //
   openAddBookModal(content: any): void {
     this.modalService.open(content, { ariaLabelledBy: 'addBookModalLabel' });
   }
