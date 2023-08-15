@@ -13,10 +13,12 @@ export class QuoteComponent implements OnInit {
 
   constructor(private quoteService: QuoteService) { }
 
+  // Initialize component
   ngOnInit(): void {
     this.getQuoteList();
   }
 
+  // Fetch the list of quotes
   getQuoteList(): void {
     this.quoteList = this.quoteService.getQuoteList();
   }

@@ -12,16 +12,13 @@ export class HomepageComponent  {
   constructor(private jwtHelper: JwtHelperService, private router: Router) {
   }
 
+  // Check if the user is authenticated
   isUserAuthenticated() {
     const token = localStorage.getItem("jwt");
-    if (token && !this.jwtHelper.isTokenExpired(token)) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return token && !this.jwtHelper.isTokenExpired(token);
   }
 
+  // Log out the user by removing JWT token
   public logOut = () => {
     localStorage.removeItem("jwt");
   }

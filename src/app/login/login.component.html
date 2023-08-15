@@ -1,4 +1,5 @@
-<div class="container" *ngIf="!isUserAuthenticated();">
+<!-- Login form for unauthenticated users -->
+<div class="container" *ngIf="!isUserAuthenticated()">
   <div class="row justify-content-center mt-5">
     <div class="col-md-4">
       <div class="card p-4">
@@ -26,9 +27,9 @@
   </div>
 </div>
 
-
+<!-- Welcome message for authenticated users -->
 <div class="container">
-  <div class="text-center mt-3" *ngIf="isUserAuthenticated();">
+  <div class="text-center mt-3" *ngIf="isUserAuthenticated()">
     <p>Welcome! You are logged in.</p>
     <a href="/" class="btn btn-secondary"><i class="fas fa-home me-2"></i> Home</a>
   </div>
