@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { QuoteComponent } from './quote/quote.component';
 import { FooterComponent } from './footer/footer.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 //all components routes
 const routes: Routes = [
@@ -42,6 +43,8 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
