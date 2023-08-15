@@ -28,7 +28,7 @@
           <p>To explore the project, you can log in using the following credentials:</p>
           <p><strong>Email:</strong> user@user.user</p>
           <p><strong>Password:</strong> 12345&aA</p>
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" *ngIf="!isUserAuthenticated();">
             <a class="nav-link" routerLink="/login">
               <i class="fa-solid fa-arrow-right-to-bracket"></i>
               Login</a>
