@@ -17,6 +17,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { QuoteComponent } from './quote/quote.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { ThemeOptions, ThemesModule } from 'ngx-themes-plus';
 
 //all components routes
 const routes: Routes = [
@@ -25,6 +26,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'quotes', component: QuoteComponent },
 ];
+const themeOptions = new ThemeOptions();
+themeOptions.attribute = 'data-bs-theme';
 
 //function is use to get jwt token from local storage
 export function tokenGetter() {
@@ -45,6 +48,7 @@ export function tokenGetter() {
     BrowserModule,
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
+    ThemesModule.forRoot(themeOptions),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    
     <div class="container">
         <a class="navbar-brand" href="#">Library Application</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -14,7 +15,8 @@
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login</a>
                 </li>
-
+                
+                
                 <!-- Navigation links for authenticated users -->
                 <ng-container *ngIf="isUserAuthenticated();">
                     <li class="nav-item active">
@@ -30,7 +32,7 @@
                     </li>
 
                     <!-- Divider between navigation links -->
-                    <span class="navbar-divider">|</span>
+                    <span class="navbar-divider"></span>
 
                     <!-- Logout link for authenticated users -->
                     <li *ngIf="isUserAuthenticated()" class="nav-item">
@@ -39,7 +41,7 @@
                         </a>
                     </li>
                 </ng-container>
-
+                
                 <!-- Login link template -->
                 <ng-template #loginTemplate>
                     <li class="nav-item">

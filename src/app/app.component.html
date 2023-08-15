@@ -5,20 +5,26 @@
 
 <body>
     <!-- ng-http-loader: Displays a loading spinner during HTTP requests -->
-    <ng-http-loader></ng-http-loader>
-    
+    <ng-http-loader [debounceDelay]="600"></ng-http-loader>
+
     <!-- Main page container -->
     <div class="page-container mb-5">
-        <!-- Navigation bar component -->
-        <nav>
-            <app-navbar></app-navbar>
-        </nav>
 
-        <!-- Router outlet for dynamically rendering components based on routes -->
-        <router-outlet></router-outlet>
+        <tp-theme-provider>
+            
+            <!-- Navigation bar component -->
+            <nav>
+                <app-navbar></app-navbar>
+            </nav>
+            <div class="me-5 mt-3 float-end">
+                <tp-theme-switcher></tp-theme-switcher>
+            </div>
+            <!-- Router outlet for dynamically rendering components based on routes -->
+            <router-outlet></router-outlet>
+        </tp-theme-provider>
 
     </div>
-    
+
     <!-- Footer component -->
     <app-footer></app-footer>
 </body>

@@ -24,6 +24,7 @@
     "date-fns": "^2.30.0",
     "fast-json-patch": "^3.1.1",
     "ng-http-loader": "^13.0.0",
+    "ngx-themes-plus": "^1.0.0",
     "ngx-toastr": "^15.2.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
