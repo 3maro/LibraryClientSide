@@ -1,0 +1,6 @@
+{
+    "apiServer": {
+      "url": "https://libraryapiapp.azurewebsites.net",
+      "version": "v1"
+    }
+}
